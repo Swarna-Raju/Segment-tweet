@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -11,7 +12,8 @@ st.markdown("This application is all about the tweet sentiment analysis of airli
 st.sidebar.title('Sentiment analysis of airlines')
 st.sidebar.markdown(":airplane: We can analyze the passengers review from this application :airplane:")
 
-data=pd.read_csv('Tweets.csv')
+file_path = os.path.join(os.path.dirname(__file__), 'Tweets.csv')
+data = pd.read_csv(file_path)
 
 if st.checkbox("Show Data"):
      st.write(data.head(100))
